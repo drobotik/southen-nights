@@ -55,6 +55,7 @@ class DataWatchman:
 			for item in d['items']:
 				p = self.__search('product', item['product-id'])
 				if p is not None:
-					order.appendItem(Product(p['id'], p['category'], p['price'], p['description']))
+					order.appendItem(Product(p['id'], p['category'], p['price'], 
+						item['quantity'], item['total'], p['description']))
 			return order
 			

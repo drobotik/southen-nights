@@ -21,6 +21,14 @@ class Customer:
 	# @return name of Customer.
 	def getRevenue(self):
 		return self.revenue
+	##
+	# Function to return customer array
+	# @return array.
+	def toArray(self):
+		return {
+			'name': self.getName(),
+			'revenue': self.getRevenue()
+		}
 ##
 # Order class.
 # Note: need to manually add items to instance
@@ -59,9 +67,22 @@ class Order:
 		return self.items
 	##
 	# Set product item
+	# @patam item should be instance of product class
 	# @return nothing.
 	def appendItem(self, item):
 		self.items.append(item)
+	##
+	# Method to return order array
+	# @return array.
+	def toArray(self): 
+		res = {
+			'id': self.getOrderId(),
+			'total': self.getTotal(),
+			'items': list()
+		}
+		for item in self.getItems():
+			res['items'].append(item.toArray())
+		return res
 ##
 # Product getter.
 class Product:
@@ -72,16 +93,18 @@ class Product:
 	# @param price Product unit price.
 	# @param description Product description.
 	# @return nothing
-	def __init__(self, product_id, category_id, price, description):
+	def __init__(self, product_id, category_id, price, quantity, total, description):
 		self.id = product_id
-		self.category = category_id
+		self.category_id = category_id
 		self.price = price
+		self.quantity = quantity
+		self.total = total
 		self.description = description
 	##
 	# Get product id
 	# @return product id
 	def getId(self):
-		return self.product_id
+		return self.id
 	##
 	# Get product category id
 	# @return product category id
@@ -97,3 +120,25 @@ class Product:
 	# @return product description
 	def getDescription(self):
 		return self.description
+	##
+	# Get product order quantity
+	# @return product quantity
+	def getQuantity(self):
+		return self.quantity
+	##
+	# Get product order total
+	# @return product total items
+	def getTotal(self):
+		return self.total
+	##
+	# Method to return product array
+	# @return array.
+	def toArray(self):
+		return {
+			'id': self.getId(),
+			'category': self.getCategory(),
+			'price': self.getPrice(),
+			'quantity': self.getQuantity(),
+			'total': self.getTotal(),
+			'description': self.getDescription()
+		}

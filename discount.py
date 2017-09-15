@@ -1,11 +1,11 @@
 #! /usr/bin/python 
-import json
+import json, sys
 from application.watchman import DataWatchman
 from application.rules import RuleOne, RuleTwo, RuleThree
 
 watchman = DataWatchman()
-customer = watchman.findCustomer(2)
-order = watchman.findOrder(2)
+customer = watchman.findCustomer(sys.argv[1])
+order = watchman.findOrder(sys.argv[2])
 
 if customer is None:
    	print 'Customer not found'

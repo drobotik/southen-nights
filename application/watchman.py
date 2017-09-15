@@ -18,7 +18,6 @@ class DataWatchman:
 	def __search(self, dataType, ent_id):
 		with open(JSONpath[dataType]) as file:    
 			data = json.load(file)
-		
 		result = None
 		for entity in data:
 			if dataType is 'product':

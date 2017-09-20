@@ -1,7 +1,7 @@
 ## Discount mini service
 ### Description
 This is a tiny application for calculating customer discounts. The goal is to make discount rules easy to build & KISS principe. This application requires php, python to play with it.
-Here is no strong concentration on data types and accuracy of calculations. The main purpose is to build similar structure in python equals to php structure. But the results of calculating expects approximately to be correct. Inspired from some people who write structures in php. Just trying to do the same in python, and not more. Not for impressing effect, but python is amazing and i will dancing and smiling again! No matter what answer will be, I'm very pleased in context.
+Here is no strong concentration on data types and accuracy of calculations. The main purpose is to build similar structure in python equals to php structure. But the results of calculating expects approximately to be correct. Inspired from some people who write structures in php. Just trying to do the same in python.
 ### Usage and logic
 Just serve this from php build-in server. 
 From index.php this will goes to python with two arguments: order_id, customer_id.

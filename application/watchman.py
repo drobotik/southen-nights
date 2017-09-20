@@ -11,9 +11,9 @@ JSONpath = {
 # If something is exists, relevant objects must be created.
 class DataWatchman:
 	##
-	# This function open json files and trying to searching objects by 'id' prop 
+	# This is common method to read json files and trying to searching objects by 'id'
 	# @param path Path to json file.
-	# @param ent_id Id fro entity
+	# @param ent_id Entity Id 
 	# @return array|None
 	def __search(self, dataType, ent_id):
 		with open(JSONpath[dataType]) as file:    
@@ -27,9 +27,9 @@ class DataWatchman:
 				result = entity
 		return result
 	##
-	# This function for produst searching
+	# This method for product searching
 	# @param product_id string id of needed product
-	# @return new instance of Product
+	# @return new Product instance
 	def findProduct(self, product_id):
 		d = self.__search('product', product_id)
 		if d is not None:
@@ -37,7 +37,7 @@ class DataWatchman:
 	##
 	# This function for customer searching
 	# @param customer_id int or string int Id of needed customer
-	# @return new instance of Customer
+	# @return new Customer instance
 	def findCustomer(self, customer_id):
 		d = self.__search('customer', customer_id)
 		if d is not None:
@@ -45,11 +45,11 @@ class DataWatchman:
 	##
 	# This function for order searching
 	# @param order_id Id of needed order
-	# @return new instance of Order
+	# @return new Order instance
 	def findOrder(self, order_id):
 		d = self.__search('order', order_id)
 		if d is not None:
-			order = Order(d['id'], d['customer-id'], d['total'])
+			order = Order(d['id'], self.findCustomer(d['customer-id']), d['total'])
 			# adding product items to order
 			for item in d['items']:
 				p = self.__search('product', item['product-id'])

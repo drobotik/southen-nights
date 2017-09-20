@@ -8,9 +8,14 @@ class Customer:
 	# @param name Customer revenue.
 	# @return nothing
 	def __init__(self, customer_id, name, revenue):
-		self.customer_id = customer_id
+		self.id = int(customer_id)
 		self.name = name
-		self.revenue = revenue
+		self.revenue = float(revenue)
+	##
+	# Get customer id
+	# @return customer id
+	def getId(self):
+		return self.id
 	##
 	# Get customer's name
 	# @return name of Customer.
@@ -37,13 +42,13 @@ class Order:
 	##
 	# Constructor
 	# @param order_id Order id.
-	# @param customer_id Order customer id.
+	# @param customer_id Customer instance.
 	# @param total Order total summ.
 	# @return nothing
-	def __init__(self, order_id, customer_id, total):
-		self.order_id = order_id
-		self.customer_id = customer_id
-		self.total = total
+	def __init__(self, order_id, customer, total):
+		self.order_id = int(order_id)
+		self.customer = customer
+		self.total = float(total)
 		self.items = list()
 	##
 	# Get order id 
@@ -51,10 +56,10 @@ class Order:
 	def getOrderId(self):
 		return self.order_id
 	##
-	# Get customer id 
-	# @return customer id.
-	def getCustomerId(self):
-		return self.customer_id
+	# Get customer instance
+	# @return customer instance.
+	def getCustomer(self):
+		return self.customer
 	##
 	# Get total summ of order
 	# @return total.
@@ -78,6 +83,7 @@ class Order:
 		res = {
 			'id': self.getOrderId(),
 			'total': self.getTotal(),
+			'customer': self.getCustomer().toArray(),
 			'items': list()
 		}
 		for item in self.getItems():
@@ -95,10 +101,10 @@ class Product:
 	# @return nothing
 	def __init__(self, product_id, category_id, price, quantity, total, description):
 		self.id = product_id
-		self.category_id = category_id
-		self.price = price
-		self.quantity = quantity
-		self.total = total
+		self.category_id = int(category_id)
+		self.price = float(price)
+		self.quantity = int(quantity)
+		self.total = float(total)
 		self.description = description
 	##
 	# Get product id

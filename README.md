@@ -3,8 +3,12 @@
 This is a tiny application for calculating customer discounts. The goal is to make discount rules easy to build & KISS principe. This application requires php, python to play with it.
 Here is no strong concentration on data types and accuracy of calculations. The main purpose is to build similar structure in python equals to php structure. But the results of calculating expects approximately to be correct. Inspired from some people who write structures in php. Just trying to do the same in python.
 ### Usage and logic
-Just serve this from php build-in server. 
-From index.php this will goes to python with two arguments: order_id, customer_id.
+To run from php:
+Just serve this from php build-in server:
+```
+php -S localhost:7777
+```
+From index.php this will goes to python with one argument: order_id.
 Then python will return resulting array back to elephant which will dump this array to the screen.<br />
 To run without php:
 ```

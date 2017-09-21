@@ -3,6 +3,10 @@ import json, sys
 from application.watchman import DataWatchman
 from application.rules import RuleOne, RuleTwo, RuleThree
 
+if len(sys.argv) is 1:
+	print 'No args (at least one required)'
+	exit()
+
 watchman = DataWatchman()
 order = watchman.findOrder(sys.argv[1])
 

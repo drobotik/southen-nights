@@ -14,7 +14,7 @@ def fetchCustomResult(order_id):
             discounts.append(rule.calc(o))
     return discounts
 
-class TestApplicationDiscount(unittest.TestCase):
+class TestDiscountResults(unittest.TestCase):
 
     def test_order(self):
         self.assertEqual(order.getOrderId(), 2)
@@ -46,7 +46,6 @@ class TestApplicationDiscount(unittest.TestCase):
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0][0]['discount'], 'gift')
         self.assertEqual(result[0][0]['product_id'], 'B102')
-        
     def test_discount3(self):
         result = fetchCustomResult(3)
         self.assertEqual(len(result), 1)

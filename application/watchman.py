@@ -30,7 +30,7 @@ class DataWatchman:
 	# This method for product searching
 	# @param product_id string id of needed product
 	# @return new Product instance
-	def findProduct(self, product_id):
+	def findProduct(self, product_id=None):
 		d = self.__search('product', product_id)
 		if d is not None:
 			return Product(d['id'], d['category'], d['price'], d['description'])
@@ -38,7 +38,7 @@ class DataWatchman:
 	# This function for customer searching
 	# @param customer_id int or string int Id of needed customer
 	# @return new Customer instance
-	def findCustomer(self, customer_id):
+	def findCustomer(self, customer_id=None):
 		d = self.__search('customer', customer_id)
 		if d is not None:
 			return Customer(d['id'], d['name'], d['revenue'])
@@ -46,7 +46,7 @@ class DataWatchman:
 	# This function for order searching
 	# @param order_id Id of needed order
 	# @return new Order instance
-	def findOrder(self, order_id):
+	def findOrder(self, order_id=None):
 		d = self.__search('order', order_id)
 		if d is not None:
 			order = Order(d['id'], self.findCustomer(d['customer-id']), d['total'])

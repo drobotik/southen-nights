@@ -6,6 +6,10 @@ Here is no strong concentration on data types and accuracy of calculations. The 
 Just serve this from php build-in server. 
 From index.php this will goes to python with two arguments: order_id, customer_id.
 Then python will return resulting array back to elephant which will dump this array to the screen.<br />
+To run without php:
+```
+python discount.py order_id
+```
 To perform unit test:
 ```
 python -m unittest discover tests "*_test.py"
